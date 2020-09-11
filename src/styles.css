@@ -1,0 +1,201 @@
+:root{
+    /* --bg_color:  */
+    --text_color: #fff;
+    --text_dark_color: #1e2432;
+}
+
+* {
+   margin : 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-weight: normal; 
+}
+
+body{
+    height: 100vh;
+    /* display: flex;
+    flex-direction: column; */
+    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    font-family: 'Roboto',sans-serif;
+    padding: 50px;
+    color: var(--text_color);
+}
+
+button{
+    cursor: pointer;
+}
+
+input{
+    -webkit-appearance: none;
+}
+
+button,
+input{
+    border: none;
+    background: none;
+    outline:  none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Section with the top heading and search form */
+
+.top-section {
+    color: var(--text_color);
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 4rem;
+    letter-spacing: 0.02em;
+    padding: 0 0 30px 0;
+}
+
+.top-section form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-section form input{
+    font-size: 2rem;
+    height: 40px;
+    padding: 5px 5px 10px;
+    border-bottom: 1px solid;
+}
+
+.top-section form iput::placeholder {
+    color: currentColor;
+}
+
+.top-section form button {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 15px 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background: #ff1e42;
+    transition: background 0.3s ease-in-out;
+}
+
+.top-section form button:hover {
+    background: #c3112d;
+}
+
+.top-section form .message {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    max-width: 450px;
+    min-height: 40px;
+}
+
+/* For screens below width of 700 px */
+@media screen and (max-width: 700px){
+    .top-section form {
+        flex-direction: column;
+    }
+
+    .top-section form input,
+    .top-section form button {
+        width: 100%;
+    }
+}
+
+/* ajax loaded section */
+
+.output-ajax-section {
+    margin: 50px 0 20px;
+}
+
+.output-ajax-section .cities {
+    display: grid;
+    grid-gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* for medium screens of >700px and <1000px */
+@media screen and (max-width: 1000px) {
+    .output-ajax-section .cities {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* for small screens of max-width 700px */
+@media screen and (max-width: 700px){
+    .output-ajax-section .cities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* for small screens of max-width 500px */
+@media screen and (max-width: 500px){
+    .output-ajax-section .cities {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* design for the extra cities displayed on the site */
+/* displayed as cards */
+
+.output-ajax-section .city {
+    position: relative;
+    padding: 40px 10%;
+    border-radius: 20px;
+    background: var(--text_color);
+    color: #53627c;
+}
+
+.output-ajax-section .city::after {
+    content: '';
+    width: 90%;
+    height: 50px;
+    position: absolute;
+    bottom: -12px;
+    left: 5%;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 20px;
+    background: var(--text_color);
+} 
+
+.output-ajax-section figcaption {
+    margin-top: 10px;
+    text-transform:uppercase;
+    letter-spacing: 0.05em;
+}
+
+.output-ajax-section .city-temp{
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #1e2432;
+}
+
+.output-ajax-section .city sup {
+    font-size: 0.5em;
+}
+
+.output-ajax-section .city-name sup {
+    padding: 0.2em 0.6em;
+    border-radius: 30px;
+    color: var(--text_color);
+    background: #ff8c00;
+}
+
+.output-ajax-section .city-icon {
+    margin-block: 10px;
+    width: 100px;
+    height: 100px;
+}
