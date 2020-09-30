@@ -11,12 +11,18 @@
    font-weight: normal; 
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 body{
     height: 100vh;
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
     background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
-    font-family: 'Roboto',sans-serif;
+    font: 1rem/1.3 "Roboto", sans-serif;
     padding: 50px;
     color: var(--text_color);
 }
@@ -47,6 +53,13 @@ img{
     height: auto;
 }
 
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 
 /* Section with the top heading and search form */
 
@@ -74,7 +87,7 @@ img{
     border-bottom: 1px solid;
 }
 
-.top-section form iput::placeholder {
+.top-section form input::placeholder {
     color: currentColor;
 }
 
@@ -93,7 +106,7 @@ img{
     background: #c3112d;
 }
 
-.top-section form .message {
+.top-section form .output-message {
     position: absolute;
     bottom: -40px;
     left: 0;
@@ -113,43 +126,24 @@ img{
     }
 }
 
-/* ajax loaded section */
+/* ajax loaded output section */
 
-.output-ajax-section {
-    margin: 50px 0 20px;
+.output-section {
+    margin: 70px 0 20px;
+
 }
 
-.output-ajax-section .cities {
+.output-section .cities {
     display: grid;
     grid-gap: 32px 20px;
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* for medium screens of >700px and <1000px */
-@media screen and (max-width: 1000px) {
-    .output-ajax-section .cities {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* for small screens of max-width 700px */
-@media screen and (max-width: 700px){
-    .output-ajax-section .cities {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* for small screens of max-width 500px */
-@media screen and (max-width: 500px){
-    .output-ajax-section .cities {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 
 /* design for the extra cities displayed on the site */
 /* displayed as cards */
 
-.output-ajax-section .city {
+.output-section .city {
     position: relative;
     padding: 40px 10%;
     border-radius: 20px;
@@ -157,7 +151,7 @@ img{
     color: #53627c;
 }
 
-.output-ajax-section .city::after {
+.output-section .city::after {
     content: '';
     width: 90%;
     height: 50px;
@@ -170,32 +164,90 @@ img{
     background: var(--text_color);
 } 
 
-.output-ajax-section figcaption {
+.output-section figcaption {
     margin-top: 10px;
     text-transform:uppercase;
     letter-spacing: 0.05em;
 }
 
-.output-ajax-section .city-temp{
+.output-section .city-temp{
     font-size: 5rem;
     font-weight: bold;
     margin-top: 10px;
     color: #1e2432;
 }
 
-.output-ajax-section .city sup {
+.output-section .city sup {
     font-size: 0.5em;
 }
 
-.output-ajax-section .city-name sup {
+.output-section .city-name sup {
     padding: 0.2em 0.6em;
     border-radius: 30px;
     color: var(--text_color);
     background: #ff8c00;
 }
 
-.output-ajax-section .city-icon {
+.output-section .city-icon {
     margin-block: 10px;
     width: 100px;
     height: 100px;
+}
+
+/* for medium screens of >700px and <1000px */
+@media screen and (max-width: 1000px) {
+    body{
+        padding: 30px;
+    }
+
+    .output-section .cities {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* for small screens of max-width 700px */
+@media screen and (max-width: 700px){
+    .heading,
+    .output-section .city-temp{
+        font-size: 3rem;
+    }
+
+    .output-section {
+        margin-top: 20px;
+    }
+
+    .top-section form {
+        flex-direction: column;
+        align-items: flex-start;;
+    }
+
+    .top-section form input,
+    .top-section form button {
+        width : 100%;
+    }
+
+    .top-section form button {
+        margin: 20px 0 0 0;
+    }
+
+    .top-section form .output-message {
+        position: static;
+        max-width: none;
+        min-height: 0;
+        margin-top: 10px;
+    }
+
+    .output-section .cities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* for small screens of max-width 500px */
+@media screen and (max-width: 500px){
+    body {
+        padding: 15px;
+    }
+    .output-section .cities {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
